@@ -334,7 +334,7 @@ var Deck = (function () {
           pos.y = e.touches[0].clientY;
         }
 		
-		self.rot = 0;
+		self.rot = (self.rot < 180)? 0 : 180;
         // move card
         $el.style[transform] = translate(Math.round(self.x + pos.x - startPos.x) + 'px', Math.round(self.y + pos.y - startPos.y) + 'px') + (self.rot ? ' rotate(' + self.rot + 'deg)' : '');
       }
@@ -343,7 +343,7 @@ var Deck = (function () {
         if (isFlippable && Date.now() - starttime < 200) {
           // flip sides
           self.setSide(self.side === 'front' ? 'back' : 'front');
-		  self.rot = 0;
+		  //self.rot = 0;
         }
         if (e.type === 'mouseup') {
           removeListener(window, 'mousemove', onMousemove);
@@ -650,7 +650,7 @@ var Deck = (function () {
 
           x: Math.round((i - 1.05) * 120 * __fontSize / 16),
           y: Math.round(-100 * __fontSize / 16),
-          rot: 0,
+          rot: Math.round(Math.random()) ? 0 : 180,
 
           onStart: function onStart() {
             $el.style.zIndex = len - 1 + i;
