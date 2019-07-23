@@ -1,0 +1,427 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #010B40;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+#container {
+  position: fixed;
+  top: calc(50% + 1.5rem);
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+}
+#topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #131313;
+  padding: 0.25rem;
+  text-align: center;
+}
+#topbar button {
+  background: none;
+  border: 1px solid #fff;
+  outline: none;
+  margin: 0.1rem;
+  padding: 0.4rem;
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+}
+#topbar button:hover {
+  background-color: #fff;
+  color: #444;
+}
+.message {
+  position: fixed;
+  top: 2.5rem;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  font-size: 0.5rem;
+  text-align: center;
+}
+.card {
+  position: absolute;
+  display: inline-block;
+  left: -3rem;
+  top: -6rem;
+  width: 6rem;
+  height: 12rem;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  cursor: default;
+  will-change: transform;
+}
+.card:before,
+.card:after {
+  position: absolute;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  white-space: pre-line;
+  width: 0.55rem;
+  letter-spacing: -0.1rem;
+}
+.card:before {
+  top: 0.15rem;
+  left: 0;
+}
+.card:after {
+  bottom: 0.1rem;
+  right: 0;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.card .face {
+  height: 100%;
+  background-position: 50% 50%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.card .back {
+  position: absolute;
+  background-image: url("res/back.jpg");
+  background-position: 50% 50%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/*
+.card.spades,
+.card.clubs,
+.card.joker {
+  color: #000;
+}
+.card.hearts,
+.card.diamonds,
+.card.joker.rank3 {
+  color: #d40000;
+}
+.card.joker.rank1:before,
+.card.joker.rank2:before,
+.card.joker.rank3:before,
+.card.joker.rank1:after,
+.card.joker.rank2:after,
+.card.joker.rank3:after {
+  content: "J\a O\a K\a E\a R";
+  letter-spacing: 0;
+  font-size: 0.4rem;
+  line-height: 0.4rem;
+  padding: 0.15rem 0.05rem;
+  width: 0.5rem;
+}
+
+.card.rank1:before,
+.card.rank1:after {
+  content: "A";
+}
+.card.rank2:before,
+.card.rank2:after {
+  content: "2";
+}
+.card.rank3:before,
+.card.rank3:after {
+  content: "3";
+}
+.card.rank4:before,
+.card.rank4:after {
+  content: "4";
+}
+.card.rank5:before,
+.card.rank5:after {
+  content: "5";
+}
+.card.rank6:before,
+.card.rank6:after {
+  content: "6";
+}
+.card.rank7:before,
+.card.rank7:after {
+  content: "7";
+}
+.card.rank8:before,
+.card.rank8:after {
+  content: "8";
+}
+.card.rank9:before,
+.card.rank9:after {
+  content: "9";
+}
+.card.rank10:before,
+.card.rank10:after {
+  content: "10";
+}
+.card.rank11:before,
+.card.rank11:after {
+  content: "J";
+}
+.card.rank12:before,
+.card.rank12:after {
+  content: "Q";
+}
+.card.rank13:before,
+.card.rank13:after {
+  content: "K";
+}
+*/
+.card.spades.rank0 .face {
+  background-image: url("res/0.jpg");
+}
+
+.card.spades.rank1 .face {
+  background-image: url("res/1.jpg");
+}
+.card.spades.rank2 .face {
+  background-image: url("res/2.jpg");
+}
+.card.spades.rank3 .face {
+  background-image: url("res/3.jpg");
+}
+.card.spades.rank4 .face {
+  background-image: url("res/4.jpg");
+}
+.card.spades.rank5 .face {
+  background-image: url("res/5.jpg");
+}
+.card.spades.rank6 .face {
+  background-image: url("res/6.jpg");
+}
+.card.spades.rank7 .face {
+  background-image: url("res/7.jpg");
+}
+.card.spades.rank8 .face {
+  background-image: url("res/8.jpg");
+}
+.card.spades.rank9 .face {
+  background-image: url("res/9.jpg");
+}
+.card.spades.rank10 .face {
+  background-image: url("res/10.jpg");
+}
+.card.spades.rank11 .face {
+  background-image: url("res/11.jpg");
+}
+.card.spades.rank12 .face {
+  background-image: url("res/12.jpg");
+}
+.card.spades.rank13 .face {
+  background-image: url("res/13.jpg");
+}
+.card.spades.rank14 .face {
+  background-image: url("res/14.jpg");
+}
+.card.spades.rank15 .face {
+  background-image: url("res/15.jpg");
+}
+.card.spades.rank16 .face {
+  background-image: url("res/16.jpg");
+}
+.card.spades.rank17 .face {
+  background-image: url("res/17.jpg");
+}
+.card.spades.rank18 .face {
+  background-image: url("res/18.jpg");
+}
+.card.spades.rank19 .face {
+  background-image: url("res/19.jpg");
+}
+.card.spades.rank20 .face {
+  background-image: url("res/20.jpg");
+}
+.card.spades.rank21 .face {
+  background-image: url("res/21.jpg");
+}
+.card.spades.rank22 .face {
+  background-image: url("res/22.jpg");
+}
+
+
+
+.card.hearts.rank1 .face {
+  background-image: url("res/1_1.jpg");
+}
+.card.hearts.rank2 .face {
+  background-image: url("res/1_2.jpg");
+}
+.card.hearts.rank3 .face {
+  background-image: url("res/1_3.jpg");
+}
+.card.hearts.rank4 .face {
+  background-image: url("res/1_4.jpg");
+}
+.card.hearts.rank5 .face {
+  background-image: url("res/1_5.jpg");
+}
+.card.hearts.rank6 .face {
+  background-image: url("res/1_6.jpg");
+}
+.card.hearts.rank7 .face {
+  background-image: url("res/1_7.jpg");
+}
+.card.hearts.rank8 .face {
+  background-image: url("res/1_8.jpg");
+}
+.card.hearts.rank9 .face {
+  background-image: url("res/1_9.jpg");
+}
+.card.hearts.rank10 .face {
+  background-image: url("res/1_10.jpg");
+}
+.card.hearts.rank11 .face {
+  background-image: url("res/1_11.jpg");
+}
+.card.hearts.rank12 .face {
+  background-image: url("res/1_12.jpg");
+}
+.card.hearts.rank13 .face {
+  background-image: url("res/1_13.jpg");
+}
+.card.clubs.rank1 .face {
+  background-image: url("res/2_1.jpg");
+}
+.card.clubs.rank2 .face {
+  background-image: url("res/2_2.jpg");
+}
+.card.clubs.rank3 .face {
+  background-image: url("res/2_3.jpg");
+}
+.card.clubs.rank4 .face {
+  background-image: url("res/2_4.jpg");
+}
+.card.clubs.rank5 .face {
+  background-image: url("res/2_5.jpg");
+}
+.card.clubs.rank6 .face {
+  background-image: url("res/2_6.jpg");
+}
+.card.clubs.rank7 .face {
+  background-image: url("res/2_7.jpg");
+}
+.card.clubs.rank8 .face {
+  background-image: url("res/2_8.jpg");
+}
+.card.clubs.rank9 .face {
+  background-image: url("res/2_9.jpg");
+}
+.card.clubs.rank10 .face {
+  background-image: url("res/2_10.jpg");
+}
+.card.clubs.rank11 .face {
+  background-image: url("res/2_11.jpg");
+}
+.card.clubs.rank12 .face {
+  background-image: url("res/2_12.jpg");
+}
+.card.clubs.rank13 .face {
+  background-image: url("res/2_13.jpg");
+}
+.card.diamonds.rank1 .face {
+  background-image: url("res/3_1.jpg");
+}
+.card.diamonds.rank2 .face {
+  background-image: url("res/3_2.jpg");
+}
+.card.diamonds.rank3 .face {
+  background-image: url("res/3_3.jpg");
+}
+.card.diamonds.rank4 .face {
+  background-image: url("res/3_4.jpg");
+}
+.card.diamonds.rank5 .face {
+  background-image: url("res/3_5.jpg");
+}
+.card.diamonds.rank6 .face {
+  background-image: url("res/3_6.jpg");
+}
+.card.diamonds.rank7 .face {
+  background-image: url("res/3_7.jpg");
+}
+.card.diamonds.rank8 .face {
+  background-image: url("res/3_8.jpg");
+}
+.card.diamonds.rank9 .face {
+  background-image: url("res/3_9.jpg");
+}
+.card.diamonds.rank10 .face {
+  background-image: url("res/3_10.jpg");
+}
+.card.diamonds.rank11 .face {
+  background-image: url("res/3_11.jpg");
+}
+.card.diamonds.rank12 .face {
+  background-image: url("res/3_12.jpg");
+}
+.card.diamonds.rank13 .face {
+  background-image: url("res/3_13.jpg");
+}
+.card.joker.rank1 .face {
+  background-image: url("res/4_1.jpg");
+}
+.card.joker.rank2 .face {
+  background-image: url("res/4_2.jpg");
+}
+.card.joker.rank3 .face {
+  background-image: url("res/4_3.jpg");
+}
+@media (max-width: 540px) {
+  #topbar {
+    text-align: left;
+  }
+  .gh-ribbon {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 100% 0;
+    -moz-transform-origin: 100% 0;
+    -o-transform-origin: 100% 0;
+    -ms-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 125%;
+  }
+}

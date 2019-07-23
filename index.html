@@ -1,91 +1,16 @@
-<!DOCTYPE HTML>  
-<html>  
-<meta charset="utf-8">  
-<script>
-	function myFunction(){
-		var result = Math.floor(Math.random() * 10 ) + 1;
-		document.getElementById("sampler").innerHTML = result;		
-	}
-
-	/*function shuffle(a) {
-	    var j, x, i;
-	    for (i = a.length; i; i -= 1) {
-	        j = Math.floor(Math.random() * i);
-	        x = a[i - 1];
-	        a[i - 1] = a[j];
-	        a[j] = x;
-	    }
-	}	
-	*/
-	function shuffle(array) {
-	  var currentIndex = array.length, temporaryValue, randomIndex;
-
-	  // While there remain elements to shuffle...
-	  while (0 !== currentIndex) {
-
-		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-
-		// And swap it with the current element.
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	  }
-	  return array;
-	}
-	
-	function make(){
-		
-		document.getElementById('board').innerHTML = ""
-		//document.getElementById('board').innerHTML = "";
-		
-		var numbers = [];
-		
-		var step;
-		for(step = 0; step < 22; step++){
-			numbers[step] = step;
-		}		
-		numbers = shuffle(numbers);        
-		
-		//document.getElementById("board").innerHTML = numbers[1];
-		
- 
-        //var rnd = Math.round(Math.random() * 20) + 1; // 이미지 랜덤하게 보여주기 위한 ..
-        //if(rnd < 10)rnd = '0' + rnd;
- 
-        //
-        
-        //img.style.cursor = 'pointer'; // 커서 지정
-		
-		for(step = 0; step < 3; step++){
-			var reverse = false;
-			if(Math.random() >= 0.5) reverse = true;
-			var img = makeImage(numbers[step],reverse);
-			document.getElementById('board').appendChild(img); // board DIV 에 이미지 동적 추가			
-		}
-    }
-	
-	function makeImage(num,reverse){
-		var img = document.createElement('img'); // 이미지 객체 생성
-		var revString = "";
-		if(reverse) revString = "r";
-		img.src = './res/' + revString + num + '.jpg'; // 이미지 경로 설정 (랜덤)
-		img.height = 570;
-		img.width = 370;
-		img.onclick = function(){document.getElementById('board').innerHTML = ""}; // 이미지를 클릭하면 제거되는 onclick 함수 생성
-		return img;
-	}
-	
-</script>
-<head>  
-    <title>Joonfactory's page</title>
-</head>  
-<body>  
-<h1>This page is Joonfactory's Tarot page</h1>  
-<p id ="sampler">I want to know your fortune</p>
-<!-- <button type="button" onclick="myFunction()">Try it</button> -->
-<button type="button" value="이미지 생성" onclick="make()">Hey</button>
-<div id="board" style="width:720"></div>
-</body>  
-</html>  
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Joon Tarot Pages</title>
+    <link href="example.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Ubuntu+Condensed" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="topbar"></div>
+    <script src="deck.js"></script>
+    <script src="example.js"></script>
+  </body>
+</html>
