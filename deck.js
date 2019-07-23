@@ -648,8 +648,8 @@ var Deck = (function () {
           delay: delay,
           duration: 250,
 
-          x: Math.round((i - 1.05) * 160 * __fontSize / 16),
-          y: Math.round(-200 * __fontSize / 16),
+          x: Math.round((i - 1.05) * 120 * __fontSize / 16),
+          y: Math.round(-100 * __fontSize / 16),
           rot: 0,
 
           onStart: function onStart() {
