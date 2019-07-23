@@ -343,7 +343,7 @@ var Deck = (function () {
         if (isFlippable && Date.now() - starttime < 200) {
           // flip sides
           self.setSide(self.side === 'front' ? 'back' : 'front');
-		  //self.rot = 0;
+		  self.rot = 0;
         }
         if (e.type === 'mouseup') {
           removeListener(window, 'mousemove', onMousemove);
